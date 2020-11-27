@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>633423788465-9e6cimsfbbvcnn7qpb1gj1v9d5m9qp0s.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.633423788465-9e6cimsfbbvcnn7qpb1gj1v9d5m9qp0s</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDO6emMJKbeeZIcY9vRue9XZ0Pqznod0f4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>633423788465</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>org.nativescript.application</string>
+	<key>PROJECT_ID</key>
+	<string>vuensbigin</string>
+	<key>STORAGE_BUCKET</key>
+	<string>vuensbigin.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:633423788465:ios:8e0f1007f3475811a12590</string>
+	<key>DATABASE_URL</key>
+	<string>https://vuensbigin.firebaseio.com</string>
+</dict>
+</plist>
