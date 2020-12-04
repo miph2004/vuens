@@ -17,26 +17,21 @@ export default {
         completed: false,
       },
     ],
-    visibilityFilters: "SHOW_ALL",
+    register: {
+      fullName: "",
+      email: "",
+      password: "",
+    },
   },
   getters: {
     filteredTodos(state) {
-      switch (state.visibilityFilters) {
-        case "SHOW_ALL":
-          return state.todos;
-        case "SHOW_ACTIVE":
-          return state.todos.filter((t) => !t.completed);
-        case "SHOW_COMPLETED":
-          return state.todos.filter((t) => t.completed);
-        default:
-          throw new Error("Unknown filter: " + state.visibilityFilters);
-      }
+      return state.todos;
+    },
+    registerUser(state) {
+      return state.register;
     },
   },
   mutations: {
-    test() {
-      console.log("Testing")
-    },
     addTodo(state, title) {
       const newTodo = {
         id: Date.now(),
@@ -58,38 +53,18 @@ export default {
         return todo.id !== payload.id;
       });
     },
-
-    clearCompleted(state) {
-      state.todos = state.todos.filter((todo) => !todo.completed);
-    },
-
-    toggleAllTodo(state) {
-      for (let todo of state.todos) {
-        if (!todo.completed) {
-          return (state.todos = state.todos.map((todo) => ({
-            ...todo,
-            completed: true,
-          })));
-        }
+    updateRegisterUser(state, payload) {
+      switch (payload.type) {
+        case "FULLNAME":
+          state.register.fullName = payload.value;
+          return;
+        case "EMAIL":
+          state.register.email = payload.value;
+          return;
+        case "PASSWORD":
+          state.register.password = payload.value;
+          return;
       }
-      return (state.todos = state.todos.map((todo) => ({
-        ...todo,
-        completed: false,
-      })));
     },
-
-    mutateFilter(state, payload) {
-      switch (payload.filter) {
-        case "SHOW_ALL":
-          return (state.visibilityFilters = "SHOW_ALL");
-        case "SHOW_ACTIVE":
-          return (state.visibilityFilters = "SHOW_ACTIVE");
-        case "SHOW_COMPLETED":
-          return (state.visibilityFilters = "SHOW_COMPLETED");
-
-        default:
-          return (state.visibilityFilters = "SHOW_ALL");
-      }
-    }
-  }
-}
+  },
+};

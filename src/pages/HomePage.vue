@@ -32,47 +32,52 @@
         ></Label>
         >
       </FlexboxLayout>
+      <!-- <Button text="Take picture" @tap="takePicture" /> -->
     </ScrollView>
   </Page>
 </template>
 
 <script>
-import { mapMutations, mapGetters } from 'vuex'
+import { mapMutations, mapGetters } from "vuex";
+import * as camera from "@nativescript/camera";
+
 export default {
   name: "HomePage",
   data() {
     return {
-      inputContent: '',
+      inputContent: "",
       isOpen: false,
     };
   },
   computed: {
-     ...mapGetters(["filteredTodos"])
+    ...mapGetters(["filteredTodos"]),
   },
   methods: {
-    ...mapMutations(["addTodo","toggleTodo", "destroyTodo"]),
+    ...mapMutations(["addTodo", "toggleTodo", "destroyTodo"]),
 
     slideOut(event, todo) {
       if (todo.completed) {
-        switch(event.direction) {
-          case 1: this.toggleTodo(todo); return; //Swipe right
+        switch (event.direction) {
+          case 1:
+            this.toggleTodo(todo);
+            return; //Swipe right
           case 2: //Swipe left
-          let elm = event.object;
-          elm.animate({
-            translate: {
-              x: -500,
-              y: 0,
-            },
-            duration: 1000,
-          });
+            let elm = event.object;
+            elm.animate({
+              translate: {
+                x: -500,
+                y: 0,
+              },
+              duration: 1000,
+            });
 
-          setTimeout(() => {
-            this.destroyTodo(todo);
-          }, 1000);
-          return;
+            setTimeout(() => {
+              this.destroyTodo(todo);
+            }, 1000);
+            return;
         }
       } else {
-        switch(event.direction) {
+        switch (event.direction) {
           case 1: //Swipe right
             let elm = event.object;
             elm.animate({
@@ -86,7 +91,9 @@ export default {
               this.destroyTodo(todo);
             }, 1000);
             return;
-          case 2: this.toggleTodo(todo); return; //Swipe left
+          case 2:
+            this.toggleTodo(todo);
+            return; //Swipe left
         }
       }
     },
@@ -103,6 +110,16 @@ export default {
         }
         this.isOpen = false;
       }
+    },
+    takePicture() {
+      camera
+        .takePicture()
+        .then(function(imageAsset) {
+          console.log("Result is an image asset instance", imageAsset);
+        })
+        .catch(function(err) {
+          console.log("Error -> " + err.message);
+        });
     },
   },
 };

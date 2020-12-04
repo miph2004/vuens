@@ -6,8 +6,10 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@nativescript/camera": "^5.0.2",
     "@nativescript/core": "^7.0.3",
     "@nativescript/firebase": "^11.1.3",
+    "@nstudio/nativescript-cardview": "^2.0.1",
     "@vue/devtools": "^5.3.3",
     "nativescript": "^7.0.11",
     "nativescript-fonticon": "^2.0.2",

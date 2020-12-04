@@ -1,7 +1,7 @@
 <template>
   <GridLayout>
     <ContentView>
-      <Navigator defaultRoute="/login" />
+      <Navigator defaultRoute="/auth/login" />
     </ContentView>
   </GridLayout>
 </template>

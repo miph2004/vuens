@@ -1,16 +1,16 @@
 <template>
   <Button
     textWrap="true"
-    width="322"
     height="48"
-    backgroundColor="#41b883"
+    :backgroundColor="backgroundColor"
     borderRadius="8"
-    marginTop="20"
+    marginTop="24"
+    padding="0"
     @tap="handleTap"
   >
-    <Span class="fab icon-style" :text="('fa-' + iconName) | fonticon" />
+    <Span class="fab" :text="('fa-' + iconName) | fonticon" fontSize="18" />
     <Span text="  " />
-    <Span :text="text" class="text-style" />
+    <Span :text="text" :color="textColor" fontSize="18" />
   </Button>
 </template>
 
@@ -26,6 +26,33 @@ export default {
       type: String,
       default: "",
     },
+    color: {
+      type: String,
+    },
+  },
+  computed: {
+    backgroundColor() {
+      return this.color === "orange"
+        ? "#f27507"
+        : this.color === "blue"
+        ? "#3578e5"
+        : this.color === "grey"
+        ? "#f5f5f5"
+        : this.color === "skin"
+        ? "#feefe6"
+        : "#fff";
+    },
+    textColor() {
+      return this.color === "orange"
+        ? "#fff"
+        : this.color === "blue"
+        ? "#fff"
+        : this.color === "grey"
+        ? "#333"
+        : this.color === "skin"
+        ? "#f27507"
+        : "#f27507";
+    },
   },
   methods: {
     handleTap(event) {
@@ -36,11 +63,9 @@ export default {
 </script>
 <style scoped>
 .text-style {
-  color: black;
   font-size: 18px;
 }
 .icon-style {
-  color: black;
   font-size: 18px;
 }
 </style>

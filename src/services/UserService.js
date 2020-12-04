@@ -35,4 +35,7 @@ export default {
       type: firebase.LoginType.GOOGLE,
     });
   },
+  async sendEmailVerification() {
+    return await firebase.sendEmailVerification();
+  },
 };
